@@ -2,6 +2,11 @@ package com.bengu.calculator.service;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * This is Calculator Implementation service
+ * @author Ben Gu
+ *
+ */
 @Service
 public class CalculatorImpl implements Calculator {
 

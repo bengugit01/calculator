@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bengu.calculator.service.Calculator;
 
+/**
+ * This the the calculator controller
+ * @author Ben Gu
+ *
+ */
 @RestController
 @RequestMapping("/calculator")
 public class CalculatorController {
