@@ -46,6 +46,14 @@ pipeline {
          steps {
             sh "docker build -t bengu/calculator ."
          }
-      }        
+      }     
+      stage("Docker push") {
+	     steps {
+            withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+               sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+               sh "docker push bengu/calculator"
+            }
+         }
+      }     
    }
 }
