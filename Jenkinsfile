@@ -54,6 +54,24 @@ pipeline {
                sh "docker push bengu/calculator"
             }
          }
-      }     
+      }  
+      stage("Deploy to staging") {
+         steps {
+            sh "docker run -v /var/run/docker.sock:/var/run/docker.sock -d --rm -p 8765:9091 --name calculator bengu/calculator"
+         }
+      }
+
+      stage("Acceptance test") {
+         steps {
+              sleep 60
+    		  sh "chmod +x acceptance-test.sh && ./acceptance-test.sh"
+         }
+      }         
    }
+   
+   post {
+      always {
+         sh "docker stop calculator"
+      }
+   }   
 }
