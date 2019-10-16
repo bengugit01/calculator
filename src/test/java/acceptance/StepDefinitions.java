@@ -8,6 +8,11 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+/**
+ * Includes the step definitions.
+ * @author Ben Gu
+ *
+ */
 public class StepDefinitions {
 	
 	private String server = System.getProperty("calculator.url");
