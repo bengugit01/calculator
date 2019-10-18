@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bengu.calculator.service.Calculator;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * This the the calculator controller
  * @author Ben Gu
  *
  */
+@Slf4j
 @RestController
 @RequestMapping("/calculator")
 public class CalculatorController {
@@ -22,6 +25,7 @@ public class CalculatorController {
 	
 	@GetMapping("/sum")
 	String sum(@RequestParam("a") Integer a, @RequestParam("b") Integer b) {
+		log.debug("Debug: a=" + a + ",  b=" + b);
 		return String.valueOf(calculator.sum(a, b));
 	}
 }
